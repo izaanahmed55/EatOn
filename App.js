@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 // import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+// import { StyleSheet, Text, View } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
 import LoginPage from "./screens/LoginPage";
@@ -29,7 +29,7 @@ export default function App() {
                     <Stack.Screen name="home" component={HomeScreen} />
                     <Stack.Screen name="resturant" component={ResturantScreen} />
                     <Stack.Screen name="checkout" component={CheckOut} />
-                    <Stack.Screen name="add-user" component={AddUser} />
+                    <Stack.Screen name="add-user" component={AddUser} /> 
                     <Stack.Screen name="view-user" component={ViewUser} />
                     <Stack.Screen name="add-restaurant" component={AddRestaurant} />
                     <Stack.Screen name="view-restaurant" component={ViewRestaurant} />

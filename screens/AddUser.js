@@ -1,8 +1,13 @@
 import React from 'react'
+import Header from '../components/Header'
+import AddUserForm from '../components/AddUserForm'
 
 const AddUser = () => {
   return (
-    <div>AddUser</div>
+    <>
+      <Header/>
+      <AddUserForm/>
+    </>
   )
 }
 

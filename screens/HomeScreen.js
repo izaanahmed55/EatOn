@@ -3,8 +3,8 @@ import { useLayoutEffect } from "react";
 import { Image, SafeAreaView, ScrollView, Text, View } from "react-native";
 import { logo, resturantsData, tastyDiscounts } from "../CONSTANTS";
 import CONSTANTS from "../CONSTANTS";
-import Categories from "../components/Categories";
-import FeaturedRow from "../components/FeaturedRow";
+// import Categories from "../components/Categories";
+// import FeaturedRow from "../components/FeaturedRow";
 import {
     Menu,
     MenuOptions,
@@ -39,12 +39,12 @@ export default function HomeScreen() {
                 <Menu className="mr-4">
                     <MenuTrigger text='Menu' style={{ fontSize: "18px" }} />
                     <MenuOptions>
-                        <MenuOption onSelect={() => navigation.navigate()} text='Add Restaurants' />
-                        <MenuOption onSelect={() => navigation.navigate()} text='View Restaurants' />
-                        <MenuOption onSelect={() => alert(`Save`)} text='Add Users' />
-                        <MenuOption onSelect={() => alert(`Save`)} text='View Users' />
-                        <MenuOption onSelect={() => alert(`Save`)} text='Add Menu' />
-                        <MenuOption onSelect={() => alert(`Save`)} text='View Menu' />
+                        <MenuOption onSelect={() => navigation.navigate("add-restaurant")} text='Add Restaurants' />
+                        {/* <MenuOption onSelect={() => navigation.navigate()} text='View Restaurants' /> */}
+                        <MenuOption onSelect={() => navigation.navigate("add-user")} text='Add Users' />
+                        {/* <MenuOption onSelect={() => alert(`Save`)} text='View Users' /> */}
+                        <MenuOption onSelect={() => navigation.navigate("add-menu")} text='Add Menu' />
+                        {/* <MenuOption onSelect={() => alert(`Save`)} text='View Menu' /> */}
                     </MenuOptions>
                 </Menu>
                 {/* <View className=" flex-1">
