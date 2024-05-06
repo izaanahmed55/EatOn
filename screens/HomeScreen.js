@@ -18,9 +18,9 @@ export default function HomeScreen() {
     const [restaurants, setRestaurants] = useState([]);
     const [menuItems, setMenuItems] = useState([]);
 
-    useEffect(() => {
-        fetchRestaurants()
-          .then(restaurants => {
+   useEffect(() => {
+      fetchRestaurants()
+         .then((restaurants) => {
             setRestaurants(restaurants);
           })
           .catch(error => {
@@ -41,9 +41,9 @@ export default function HomeScreen() {
             {/* Header */}
             <Header/>
 
-            {/* Body */}
-            <ScrollView>
-                {/* Categories */}
+         {/* Body */}
+         <ScrollView>
+            {/* Categories */}
 
                 {/* <Categories /> */}
                 {/* Featured Rows */}
@@ -59,7 +59,7 @@ export default function HomeScreen() {
                     category="discounts"
                     menuItems={menuItems}
                 /> */}
-                {/* <FeaturedRow
+            {/* <FeaturedRow
                     title="Offers Near you"
                     description="Exciting Deals from your partners"
                     category="offers"
