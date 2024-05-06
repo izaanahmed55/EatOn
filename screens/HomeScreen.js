@@ -53,12 +53,12 @@ export default function HomeScreen() {
                     category="featured"
                     resturants={restaurants}
                 />
-                {/* <FeaturedRow
+                <FeaturedRow
                     title="Menu Items"
                     description="Exciting Menu Items"
                     category="discounts"
                     menuItems={menuItems}
-                /> */}
+                />
             {/* <FeaturedRow
                     title="Offers Near you"
                     description="Exciting Deals from your partners"
