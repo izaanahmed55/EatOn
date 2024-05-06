@@ -14,9 +14,9 @@ export default function HomeScreen() {
         });
     }, []);
 
+
     const [restaurants, setRestaurants] = useState([]);
     const [menuItems, setMenuItems] = useState([]);
-    const [error, setError] = useState("");
 
     useEffect(() => {
         fetchRestaurants()
@@ -24,18 +24,19 @@ export default function HomeScreen() {
             setRestaurants(restaurants);
           })
           .catch(error => {
-            setError(error);
+            console.log(error);
           });
           fetchMenuItems()
           .then(menuItems => {
             setMenuItems(menuItems);
           })
           .catch(error => {
-            setError(error);
+            console.log(error);
           });
       }, []);
     
     return (
+        <>
         <SafeAreaView style={CONSTANTS.AndroidSafeArea} className="bg-white">
             {/* Header */}
             <Header/>
@@ -52,12 +53,12 @@ export default function HomeScreen() {
                     category="featured"
                     resturants={restaurants}
                 />
-                <FeaturedRow
+                {/* <FeaturedRow
                     title="Menu Items"
                     description="Exciting Menu Items"
                     category="discounts"
                     menuItems={menuItems}
-                />
+                /> */}
                 {/* <FeaturedRow
                     title="Offers Near you"
                     description="Exciting Deals from your partners"
@@ -65,6 +66,6 @@ export default function HomeScreen() {
                     resturants={resturantsData}
                 /> */}
             </ScrollView>
-        </SafeAreaView>
+        </SafeAreaView></>
     );
 }

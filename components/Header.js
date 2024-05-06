@@ -33,6 +33,7 @@ const Header = () => {
                     <MenuTrigger text='Menu' />
                     <MenuOptions>
                         <MenuOption onSelect={() => navigation.navigate("home")} text='Home' />
+                        <MenuOption onSelect={() => navigation.navigate("view-user")} text='Users' />
                         <MenuOption onSelect={() => navigation.navigate("add-restaurant")} text='Add Restaurants' />
                         <MenuOption onSelect={() => navigation.navigate("add-user")} text='Add Users' />
                         <MenuOption onSelect={() => navigation.navigate("add-menu")} text='Add Menu' />
