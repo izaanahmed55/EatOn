@@ -40,13 +40,17 @@ const ResturantFoodCards = (props) => {
                     {props.address}
                 </Text>
                 <Text className="text-sm  text-gray-600 mb-2">
-                    Cuisine: {props.cuisine_type}
+                    {props.cuisine_type}
                 </Text>
 
-                <View className="flex-row space-x-1 items-center ">
+                {props.price && <View className="flex-row space-x-1 items-center ">
+                    <Text>$ {props.price}</Text>
+                </View>}
+
+                {props.rating && <View className="flex-row space-x-1 items-center ">
                     <StarIcon color="#FFB100" size={20} />
                     <Text>{props.rating}</Text>
-                </View>
+                </View>}
             </View>
         </TouchableOpacity>
     );

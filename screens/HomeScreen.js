@@ -1,19 +1,11 @@
 import { useNavigation } from "@react-navigation/native";
 import { useEffect, useLayoutEffect, useState } from "react";
-import { Image, SafeAreaView, ScrollView, Text, View } from "react-native";
-import { logo, resturantsData, tastyDiscounts } from "../CONSTANTS";
+import { SafeAreaView, ScrollView } from "react-native";
 import CONSTANTS from "../CONSTANTS";
-// import Categories from "../components/Categories";
 import FeaturedRow from "../components/FeaturedRow";
-import { fetchRestaurants } from '../api/api.js';
-import {
-    Menu,
-    MenuOptions,
-    MenuOption,
-    MenuTrigger,
-  } from 'react-native-popup-menu';
+import { fetchRestaurants, fetchMenuItems } from '../api/api.js';
 import Header from "../components/Header.js";
-// import logo from "../assets/eaton-1.png";
+
 export default function HomeScreen() {
     const navigation = useNavigation();
     useLayoutEffect(() => {
@@ -23,11 +15,20 @@ export default function HomeScreen() {
     }, []);
 
     const [restaurants, setRestaurants] = useState([]);
+    const [menuItems, setMenuItems] = useState([]);
+    const [error, setError] = useState("");
 
     useEffect(() => {
         fetchRestaurants()
           .then(restaurants => {
             setRestaurants(restaurants);
+          })
+          .catch(error => {
+            setError(error);
+          });
+          fetchMenuItems()
+          .then(menuItems => {
+            setMenuItems(menuItems);
           })
           .catch(error => {
             setError(error);
@@ -51,12 +52,12 @@ export default function HomeScreen() {
                     category="featured"
                     resturants={restaurants}
                 />
-                {/* <FeaturedRow
-                    title="Tasty Discounts"
-                    description="Exciting Deals from your partners"
+                <FeaturedRow
+                    title="Menu Items"
+                    description="Exciting Menu Items"
                     category="discounts"
-                    resturants={tastyDiscounts}
-                /> */}
+                    menuItems={menuItems}
+                />
                 {/* <FeaturedRow
                     title="Offers Near you"
                     description="Exciting Deals from your partners"
