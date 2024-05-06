@@ -1,6 +1,6 @@
 import { View, Text, ScrollView } from "react-native";
 import React, { useState } from "react";
-import { ArrowRightIcon } from "react-native-heroicons/outline";
+// import { ArrowRightIcon } from "react-native-heroicons/outline";
 import ResturantFoodCards from "./ResturantFoodCards";
 import { resturantsData } from "../CONSTANTS";
 const FeaturedRow = (props) => {
@@ -11,7 +11,7 @@ const FeaturedRow = (props) => {
                 <Text className="font-bold text-2xl text-gray-800 mb-1">
                     {props.title}
                 </Text>
-                <ArrowRightIcon color="#00ccbb" />
+                {/* <ArrowRightIcon color="#00ccbb" /> */}
             </View>
 
             <Text className="text-base text-gray-800 px-4">
@@ -27,15 +27,15 @@ const FeaturedRow = (props) => {
                 className="pt-4 "
             >
                 {/* Resturant Food Cards */}
-                {props.resturants.map((res) => {
+                {props.resturants.map((res, index) => {
                     return (
                         <ResturantFoodCards
-                            key={res.id}
-                            imgUrl={res.imgUrl}
-                            title={res.title}
+                            imgUrl="https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg"
+                            key={index}
+                            title={res.name}
+                            address={res.address}
+                            cuisine_type={res.cuisine_type}
                             rating={res.rating}
-                            location={res.location}
-                            description={res.description}
                         />
                     );
                 })}

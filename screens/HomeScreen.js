@@ -1,16 +1,18 @@
 import { useNavigation } from "@react-navigation/native";
-import { useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { Image, SafeAreaView, ScrollView, Text, View } from "react-native";
 import { logo, resturantsData, tastyDiscounts } from "../CONSTANTS";
 import CONSTANTS from "../CONSTANTS";
 // import Categories from "../components/Categories";
-// import FeaturedRow from "../components/FeaturedRow";
+import FeaturedRow from "../components/FeaturedRow";
+import { fetchRestaurants } from '../api/api.js';
 import {
     Menu,
     MenuOptions,
     MenuOption,
     MenuTrigger,
   } from 'react-native-popup-menu';
+import Header from "../components/Header.js";
 // import logo from "../assets/eaton-1.png";
 export default function HomeScreen() {
     const navigation = useNavigation();
@@ -19,51 +21,36 @@ export default function HomeScreen() {
             headerShown: false,
         });
     }, []);
+
+    const [restaurants, setRestaurants] = useState([]);
+
+    useEffect(() => {
+        fetchRestaurants()
+          .then(restaurants => {
+            setRestaurants(restaurants);
+          })
+          .catch(error => {
+            setError(error);
+          });
+      }, []);
+    
     return (
         <SafeAreaView style={CONSTANTS.AndroidSafeArea} className="bg-white">
             {/* Header */}
-            <View className="flex-row  items-center w-full justify-between">
-                <View className="w-32 h-32  ">
-                    <Image
-                        source={logo}
-                        className="object-cover mx-auto "
-                        resizeMode="contain"
-                        style={{
-                            flex: 1,
-                            width: "100%",
-                            height: "100%",
-                            resizeMode: "contain",
-                        }}
-                    />
-                </View>
-                <Menu className="mr-4">
-                    <MenuTrigger text='Menu' style={{ fontSize: "18px" }} />
-                    <MenuOptions>
-                        <MenuOption onSelect={() => navigation.navigate("add-restaurant")} text='Add Restaurants' />
-                        {/* <MenuOption onSelect={() => navigation.navigate("view-restaurant")} text='View Restaurants' /> */}
-                        <MenuOption onSelect={() => navigation.navigate("add-user")} text='Add Users' />
-                        {/* <MenuOption onSelect={() => navigation.navigate("view-user")} text='View Users' /> */}
-                        <MenuOption onSelect={() => navigation.navigate("add-menu")} text='Add Menu' />
-                        {/* <MenuOption onSelect={() => navigation.navigate("view-menu")} text='View Menu' /> */}
-                    </MenuOptions>
-                </Menu>
-                {/* <View className=" flex-1">
-                    <Text>Home</Text>
-                </View> */}
-            </View>
+            <Header/>
 
             {/* Body */}
-            {/* <ScrollView> */}
+            <ScrollView>
                 {/* Categories */}
 
                 {/* <Categories /> */}
                 {/* Featured Rows */}
-                {/* <FeaturedRow
-                    title="Featured"
-                    description="Exciting Deals from your partners"
+                <FeaturedRow
+                    title="Restaurants"
+                    description="With Exciting Ambiance"
                     category="featured"
-                    resturants={resturantsData}
-                /> */}
+                    resturants={restaurants}
+                />
                 {/* <FeaturedRow
                     title="Tasty Discounts"
                     description="Exciting Deals from your partners"
@@ -76,7 +63,7 @@ export default function HomeScreen() {
                     category="offers"
                     resturants={resturantsData}
                 /> */}
-            {/* </ScrollView> */}
+            </ScrollView>
         </SafeAreaView>
     );
 }

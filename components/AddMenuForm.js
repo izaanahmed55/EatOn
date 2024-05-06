@@ -31,7 +31,8 @@ const AddMenuForm = () => {
   return (
     <SafeAreaView>
             <View className="bg-white">
-                    <View className="space-y-3 mt-20 flex flex-col my-40 items-center">
+                    <View className="border p-4 space-y-3 mt-20 flex flex-col mb-16 items-center">
+                    <Text className="font-bold">Add A User</Text>
                         <Text>Menu Item</Text>
                         <TextInput
                             onChangeText={(menuItem) =>

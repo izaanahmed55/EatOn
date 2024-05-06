@@ -1,7 +1,6 @@
 import {
     View,
     Text,
-    TouchableOpacityBase,
     TouchableOpacity,
     Image,
 } from "react-native";
@@ -38,7 +37,10 @@ const ResturantFoodCards = (props) => {
                     {props.title}
                 </Text>
                 <Text className="text-sm  text-gray-600 mb-2">
-                    {props.location}
+                    {props.address}
+                </Text>
+                <Text className="text-sm  text-gray-600 mb-2">
+                    Cuisine: {props.cuisine_type}
                 </Text>
 
                 <View className="flex-row space-x-1 items-center ">
