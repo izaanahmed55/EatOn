@@ -40,11 +40,11 @@ export default function HomeScreen() {
                     <MenuTrigger text='Menu' style={{ fontSize: "18px" }} />
                     <MenuOptions>
                         <MenuOption onSelect={() => navigation.navigate("add-restaurant")} text='Add Restaurants' />
-                        {/* <MenuOption onSelect={() => navigation.navigate()} text='View Restaurants' /> */}
+                        {/* <MenuOption onSelect={() => navigation.navigate("view-restaurant")} text='View Restaurants' /> */}
                         <MenuOption onSelect={() => navigation.navigate("add-user")} text='Add Users' />
-                        {/* <MenuOption onSelect={() => alert(`Save`)} text='View Users' /> */}
+                        {/* <MenuOption onSelect={() => navigation.navigate("view-user")} text='View Users' /> */}
                         <MenuOption onSelect={() => navigation.navigate("add-menu")} text='Add Menu' />
-                        {/* <MenuOption onSelect={() => alert(`Save`)} text='View Menu' /> */}
+                        {/* <MenuOption onSelect={() => navigation.navigate("view-menu")} text='View Menu' /> */}
                     </MenuOptions>
                 </Menu>
                 {/* <View className=" flex-1">
