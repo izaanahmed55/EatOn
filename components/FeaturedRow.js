@@ -31,6 +31,7 @@ const FeaturedRow = (props) => {
                         <ResturantFoodCards
                             imgUrl="https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg"
                             key={index}
+                            resturantId={res.restaurant_id}
                             title={res.name}
                             address={res.address}
                             cuisine_type={res.cuisine_type}
@@ -43,6 +44,7 @@ const FeaturedRow = (props) => {
                         <ResturantFoodCards
                             imgUrl="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg"
                             key={index}
+                            menuId={res.restaurant_id}
                             title={res.name}
                             address={res.address}
                             cuisine_type={res.cuisine_type}

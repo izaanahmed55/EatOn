@@ -12,6 +12,26 @@ export const fetchRestaurants = async () => {
    }
 };
 
+export const fetchRestaurantById = async (id) => {
+   try {
+      const response = await axios.get(`${BASE_URL}/get_single_menu.php?restaurant_id=${id}`);
+      return response.data;
+   } catch (error) {
+      console.error("Error fetching restaurant:", error);
+      throw error;
+   }
+};
+
+export const fetchMenuById = async (id) => {
+   try {
+      const response = await axios.get(`${BASE_URL}/get_single_menu.php?restaurant_id=${id}`);
+      return response.data;
+   } catch (error) {
+      console.error("Error fetching restaurant:", error);
+      throw error;
+   }
+};
+
 export const fetchUsers = async () => {
    try {
       const response = await axios.get(`${BASE_URL}/get_users.php`);
